@@ -1,0 +1,69 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1"
+    tools:context=".fragments.DiagnoseFragment" >
+    <!--first-->
+    <TableRow>
+        <TextView
+            android:id="@+id/diagnoseLabel"
+            android:hint="classification for diagnose"
+            android:textStyle="bold"
+            android:background="#EEFFBB"
+            android:text="Classification:" />
+        <Spinner
+            android:id="@+id/diagnosepinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="4" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/diagnoseIdLabel"
+            android:hint="classification for diagnose"
+            android:textStyle="bold"
+            android:background="#EEFFBB"
+            android:text="Classification ID:" />
+        <EditText
+            android:id="@+id/diagnoseEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/diagnoseOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#AAAAFF"
+            android:layout_column="1"
+            android:text="Diagnose"
+            android:onClick="diagnoseOK"
+            />
+        <Button
+            android:id="@+id/diagnoseCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFAAAA"
+            android:layout_column="3"
+            android:text="Cancel"
+            android:onClick="diagnoseCancel"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/diagnoseResultLabel"
+            android:hint="Result of diagnose"
+            android:textStyle="bold"
+            android:background="#EEFFBB"
+            android:text="Result:" />
+        <TextView
+            android:id="@+id/diagnoseResult"
+            android:hint="Result of diagnose"
+            android:textStyle="bold"
+            android:layout_span="4" />
+    </TableRow>
+</TableLayout>

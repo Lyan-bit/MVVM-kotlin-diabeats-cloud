@@ -1,0 +1,150 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        tools:context=".fragments.CreateFragment" >
+        <!--Screen-->
+        <TableRow>
+            <TextView
+                android:id="@+id/idLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Id:" />
+
+            <EditText
+                android:id="@+id/idField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/pregnanciesLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Pregnancies:" />
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/pregnanciesField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/glucoseLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Glucose:" />
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/glucoseField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/bloodPressureLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Blood Pressure:" />
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/bloodPressureField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/skinThicknessLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Skin Thickness:" />
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/skinThicknessField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/insulinLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Insulin:" />
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/insulinField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/bmiLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="BMI:" />
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/bmiField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/diabetesPedigreeLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Diabetes Pedigree:" />
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/diabetesPedigreeField"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/ageLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Age:" />
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/ageField"
+                android:layout_span="4" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/resultLabel"
+                android:textStyle="bold"
+                android:background="#EEFFBB"
+                android:text="Result:" />
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_span="4" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/diagnoseCreate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:background="#AAAAFF"
+                android:text="Save"
+                android:onClick="diagnoseCreate"/>
+            <Button
+                android:id="@+id/diagnoseCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:background="#FFAAAA"
+                android:text="Cancel"
+                android:onClick="diagnoseCancel"/>
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>
