@@ -42,11 +42,9 @@ class ListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.list_layout, container, false)
         model = CrudViewModel.getInstance(myContext)
-        val data = arguments
 
         if (view is RecyclerView) {
             val context = view.getContext()
-            val recyclerView = view
             if (mColumnCount <= 1) {
                 view.layoutManager = LinearLayoutManager(context)
             } else {
