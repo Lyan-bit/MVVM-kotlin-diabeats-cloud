@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.diabeats.adapter.SectionsPagerAdapter
-import com.example.diabeats.cloudDatabase.FirebaseDbi
 import com.example.diabeats.fragments.ListFragment
 import com.example.diabeats.model.ClassificationVO
 import com.example.diabeats.viewModel.CrudViewModel
