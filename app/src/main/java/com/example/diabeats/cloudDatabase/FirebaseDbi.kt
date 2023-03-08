@@ -40,6 +40,7 @@ class FirebaseDbi() {
                     locals.addAll(Classification.ClassificationAllInstances)
                     for (x in locals) {
                         if (keys.contains(x.id)) {
+                            //check
                         } else {
                             Classification.killClassification(x.id)
                         }
@@ -47,7 +48,9 @@ class FirebaseDbi() {
                 }
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {}
+            override fun onCancelled(databaseError: DatabaseError) {
+            //cancel
+            }
         }
         database!!.child("classifications").addValueEventListener(classificationListener)
     }
