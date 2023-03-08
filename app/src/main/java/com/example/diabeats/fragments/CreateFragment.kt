@@ -91,6 +91,7 @@ class CreateFragment : Fragment(), View.OnClickListener {
         try {
             imm.hideSoftInputFromWindow(v.windowToken, 0)
         } catch (e: Exception) {
+            e.printStackTrace()
         }
         when (v.id) {
             R.id.diagnoseCreate -> {
