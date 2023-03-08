@@ -32,7 +32,7 @@ class ClassificationDAO {
         }
 
         fun isCached(id: String?): Boolean {
-            val x: Classification = Classification.ClassificationIndex.get(id) ?: return false
+            Classification.ClassificationIndex.get(id) ?: return false
             return true
         }
 
