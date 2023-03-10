@@ -3,7 +3,9 @@ package com.example.diabeats.viewModel;
 import java.util.ArrayList;
 
 class OclOperation
-{ OclOperation() { }
+{ OclOperation() {
+//ocl
+}
 
   OclOperation(String nme)
   { name = nme; }
