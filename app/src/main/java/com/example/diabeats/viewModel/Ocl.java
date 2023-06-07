@@ -1,4 +1,4 @@
-package com.example.diabeats.viewModel; // Place in the relevant package directory of your application.
+package com.example.diabeats.viewmodel; // Place in the relevant package directory of your application.
 
 /******************************
 * Copyright (c) 2003--2022 Kevin Lano
