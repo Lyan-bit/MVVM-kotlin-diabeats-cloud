@@ -18,12 +18,6 @@ class CrudViewModel (context: Context): ViewModel() {
         }
     }
 
-    /* This metatype code requires OclType.java, OclAttribute.java, OclOperation.java */
-    fun initialiseOclTypes() {
-        val classificationOclType: OclType = OclType.createByPKOclType("Classification")
-        classificationOclType.setMetatype(Classification::class.java)
-    }
-
     private var currentClassification: ClassificationVO? = null
     private var currentClassifications: ArrayList<ClassificationVO> = ArrayList()
 
