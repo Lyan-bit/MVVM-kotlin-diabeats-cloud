@@ -28,7 +28,7 @@ class DiagnoseBean(c: Context) {
         if (instanceClassification == null) {
             errors.add("classification must be a valid Classification id")
         }
-        return errors.size > 0
+        return errors.isNotEmpty()
     }
 
     fun errors(): String {
