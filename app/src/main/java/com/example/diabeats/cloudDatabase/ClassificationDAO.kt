@@ -159,7 +159,7 @@ class ClassificationDAO {
             try {
                 val map = obj as HashMap<String, Object>
                 val id: String = map["id"].toString()
-                var diabeatsx: Classification? = Classification.ClassificationIndex.get(id)
+                var diabeatsx: Classification? = Classification.ClassificationIndex[id]
                 if (diabeatsx == null) {
                     diabeatsx = Classification.createByPKClassification(id)
                 }
