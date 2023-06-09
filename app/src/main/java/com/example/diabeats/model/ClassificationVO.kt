@@ -3,134 +3,66 @@ package com.example.diabeats.model
 import java.util.ArrayList
 
 class ClassificationVO {
-    private var one : Float = 0F
-    private var two : Float = 0F
-    private var three : Float = 0F
-    private var four : Float = 0F
-    private var five : Float = 0F
-    private var six : Float = 0F
-    private var seven : Float = 0F
-    private var eight : Float = 0F
-    private lateinit var result : String
-    private lateinit var id: String
+     var id: String = ""
+     var pregnancies: Int = 0
+     var glucose: Int = 0
+     var bloodPressure: Int = 0
+     var skinThickness: Int = 0
+     var insulin: Int = 0
+     var bmi: Double = 0.0
+     var diabetesPedigreeFunction: Double = 0.0
+     var age: Int = 0
+     var outcome: String = ""
 
-    constructor() {}
-
-    constructor(
-        onex: Float,
-        twox: Float,
-        threex: Float,
-        fourx: Float,
-        fivex: Float,
-        sixx: Float,
-        sevenx: Float,
-        eightx: Float,
-        resultx: String,
-        idx: String,
-    ) {
-        one = onex
-        two = twox
-        three = threex
-        four = fourx
-        five = fivex
-        six = sixx
-        seven = sevenx
-        eight = eightx
-        result = resultx
-        id = idx
+    constructor() {
+    	//constructor
     }
 
-    constructor (x: Classification) {
-        one = x.one
-        two = x.two
-        three = x.three
-        four = x.four
-        five = x.five
-        six = x.six
-        seven =x.seven
-        eight = x.eight
-        result = x.result
+    constructor(idx: String, 
+        pregnanciesx: Int, 
+        glucosex: Int, 
+        bloodPressurex: Int, 
+        skinThicknessx: Int, 
+        insulinx: Int, 
+        bmix: Double, 
+        diabetesPedigreeFunctionx: Double, 
+        agex: Int, 
+        outcomex: String
+        ) {
+        this.id = idx
+        this.pregnancies = pregnanciesx
+        this.glucose = glucosex
+        this.bloodPressure = bloodPressurex
+        this.skinThickness = skinThicknessx
+        this.insulin = insulinx
+        this.bmi = bmix
+        this.diabetesPedigreeFunction = diabetesPedigreeFunctionx
+        this.age = agex
+        this.outcome = outcomex
+    }
+
+    constructor (x: Diabeats) {
         id = x.id
+        pregnancies = x.pregnancies
+        glucose = x.glucose
+        bloodPressure = x.bloodPressure
+        skinThickness = x.skinThickness
+        insulin = x.insulin
+        bmi = x.bmi
+        diabetesPedigreeFunction = x.diabetesPedigreeFunction
+        age = x.age
+        outcome = x.outcome
     }
 
     override fun toString(): String {
-        return "one= $one,two= $two,three= $three,four= $four,five= $five,six= $six,seven= $seven,eight= $eight,result= $result, id= $id"
+        return "id = $id,pregnancies = $pregnancies,glucose = $glucose,bloodPressure = $bloodPressure,skinThickness = $skinThickness,insulin = $insulin,bmi = $bmi,diabetesPedigreeFunction = $diabetesPedigreeFunction,age = $age,outcome = $outcome"
     }
 
-    fun toStringList(list: List<ClassificationVO>): List<String> {
+    fun toStringList(list: List<DiabeatsVO>): List<String> {
         val res: MutableList<String> = ArrayList()
         for (i in list.indices) {
             res.add(list[i].toString())
         }
         return res
-    }
-    fun getone(): Float {
-        return one
-    }
-    fun gettwo(): Float {
-        return two
-    }
-    fun getthree(): Float {
-        return three
-    }
-    fun getfour(): Float {
-        return four
-    }
-    fun getfive(): Float {
-        return five
-    }
-    fun getsix(): Float {
-        return six
-    }
-    fun getseven(): Float {
-        return seven
-    }
-    fun geteight(): Float {
-        return eight
-    }
-    fun getresult(): String {
-        return result
-    }
-    fun getid(): String {
-        return id
-    }
-
-    fun setone(x: Float) {
-        one = x
-    }
-
-    fun settwo(x: Float) {
-        two = x
-    }
-
-    fun setthree(x: Float) {
-        three = x
-    }
-
-    fun setfour(x: Float) {
-        four = x
-    }
-
-    fun setfive(x: Float) {
-        five = x
-    }
-
-    fun setsix(x: Float) {
-        six = x
-    }
-
-    fun setseven(x: Float) {
-        seven = x
-    }
-
-    fun seteight(x: Float) {
-        eight = x
-    }
-    fun setresult(x: String) {
-        result = x
-    }
-
-    fun setid(x: String) {
-        id = x
     }
 }
