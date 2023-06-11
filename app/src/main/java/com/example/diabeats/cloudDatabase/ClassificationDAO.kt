@@ -44,21 +44,21 @@ class ClassificationDAO {
             if (line == null) {
                 return null
             }
-            val line1vals: ArrayList<String> = Ocl.tokeniseCSV(line)
+            val line1vals: List<String> = Ocl.tokeniseCSV(line)
             var diabeatsx: Classification? = Classification.ClassificationIndex[line1vals[0]]
             if (diabeatsx == null) {
                 diabeatsx = Classification.createByPKClassification(line1vals[0])
             }
             diabeatsx.id = line1vals[0].toString()
-            diabeatsx.one = line1vals[1].toFloat()
-            diabeatsx.two = line1vals[2].toFloat()
-            diabeatsx.three = line1vals[3].toFloat()
-            diabeatsx.four = line1vals[4].toFloat()
-            diabeatsx.five = line1vals[5].toFloat()
-            diabeatsx.six = line1vals[6].toFloat()
-            diabeatsx.seven = line1vals[7].toFloat()
-            diabeatsx.eight = line1vals[8].toFloat()
-            diabeatsx.result = line1vals[9].toString()
+            diabeatsx.pregnancies = line1vals[1].toInt()
+            diabeatsx.glucose = line1vals[2].toInt()
+            diabeatsx.bloodPressure = line1vals[3].toInt()
+            diabeatsx.skinThickness = line1vals[4].toInt()
+            diabeatsx.insulin = line1vals[5].toInt()
+            diabeatsx.bmi = line1vals[6].toDouble()
+            diabeatsx.diabetesPedigreeFunction = line1vals[7].toDouble()
+            diabeatsx.age = line1vals[8].toInt()
+            diabeatsx.outcome = line1vals[9].toString()
             return diabeatsx
         }
 
@@ -73,15 +73,15 @@ class ClassificationDAO {
                     diabeatsx = Classification.createByPKClassification(id)
                 }
                 diabeatsx.id = obj.getString("id")
-                diabeatsx.one = obj.getLong("one").toFloat()
-                diabeatsx.two = obj.getLong("two").toFloat()
-                diabeatsx.three = obj.getLong("three").toFloat()
-                diabeatsx.four = obj.getLong("four").toFloat()
-                diabeatsx.five = obj.getLong("five").toFloat()
-                diabeatsx.six = obj.getLong("BMI").toFloat()
-                diabeatsx.seven = obj.getLong("seven").toFloat()
-                diabeatsx.eight = obj.getDouble("eight").toFloat()
-                diabeatsx.result = obj.getString("outcome")
+                diabeatsx.pregnancies = obj.getInt("pregnancies")
+                diabeatsx.glucose = obj.getInt("glucose")
+                diabeatsx.bloodPressure = obj.getInt("bloodPressure")
+                diabeatsx.skinThickness = obj.getInt("skinThickness")
+                diabeatsx.insulin = obj.getInt("insulin")
+                diabeatsx.bmi = obj.getDouble("bmi")
+                diabeatsx.diabetesPedigreeFunction = obj.getDouble("diabetesPedigreeFunction")
+                diabeatsx.age = obj.getInt("age")
+                diabeatsx.outcome = obj.getString("outcome")
                 diabeatsx
             } catch (e: Exception) {
                 null
@@ -93,7 +93,7 @@ class ClassificationDAO {
             if (lines == null) {
                 return result
             }
-            val rows: ArrayList<String> = Ocl.parseCSVtable(lines)
+            val rows: List<String> = Ocl.parseCSVtable(lines)
             for (item in rows.indices) {
                 val row = rows[item]
                 if (row == null || row.trim { it <= ' ' }.isEmpty()) {
@@ -136,15 +136,15 @@ class ClassificationDAO {
             val result = JSONObject()
             try {
                 result.put("id", x.id)
-                result.put("one", x.one)
-                result.put("two", x.two)
-                result.put("three", x.three)
-                result.put("four", x.four)
-                result.put("five", x.five)
-                result.put("six", x.six)
-                result.put("seven", x.seven)
-                result.put("eight", x.eight)
-                result.put("outcome", x.result)
+                result.put("pregnancies", x.pregnancies)
+                result.put("glucose", x.glucose)
+                result.put("bloodPressure", x.bloodPressure)
+                result.put("skinThickness", x.skinThickness)
+                result.put("insulin", x.insulin)
+                result.put("bmi", x.bmi)
+                result.put("diabetesPedigreeFunction", x.diabetesPedigreeFunction)
+                result.put("age", x.age)
+                result.put("outcome", x.outcome)
             } catch (e: Exception) {
                 return null
             }
@@ -164,15 +164,15 @@ class ClassificationDAO {
                     diabeatsx = Classification.createByPKClassification(id)
                 }
                 diabeatsx.id = map["id"].toString()
-                diabeatsx.one = (map["one"] as Long?)!!.toLong().toFloat()
-                diabeatsx.two = (map["two"] as Long?)!!.toLong().toFloat()
-                diabeatsx.three = (map["three"] as Long?)!!.toLong().toFloat()
-                diabeatsx.four = (map["four"] as Long?)!!.toLong().toFloat()
-                diabeatsx.five = (map["five"] as Long?)!!.toLong().toFloat()
-                diabeatsx.six = (map["six"] as Long?)!!.toLong().toFloat()
-                diabeatsx.seven = (map["seven"] as Long?)!!.toLong().toFloat()
-                diabeatsx.eight = (map["eight"] as Long?)!!.toLong().toFloat()
-                diabeatsx.result = map["result"].toString()
+                diabeatsx.pregnancies = (map["pregnancies"] as Long?)!!.toLong().toInt()
+                diabeatsx.glucose = (map["glucose"] as Long?)!!.toLong().toInt()
+                diabeatsx.bloodPressure = (map["bloodPressure"] as Long?)!!.toLong().toInt()
+                diabeatsx.skinThickness = (map["skinThickness"] as Long?)!!.toLong().toInt()
+                diabeatsx.insulin = (map["insulin"] as Long?)!!.toLong().toInt()
+                diabeatsx.bmi = (map["bmi"] as Long?)!!.toLong().toDouble()
+                diabeatsx.diabetesPedigreeFunction = (map["diabetesPedigreeFunction"] as Long?)!!.toLong().toDouble()
+                diabeatsx.age = (map["age"] as Long?)!!.toLong().toInt()
+                diabeatsx.outcome = map["outcome"].toString()
                 return diabeatsx
             } catch (e: Exception) {
                 return null
