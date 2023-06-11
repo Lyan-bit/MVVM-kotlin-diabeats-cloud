@@ -7,136 +7,150 @@ import java.lang.Exception
 class ClassificationBean(c: Context) {
     private var model: CrudViewModel = CrudViewModel.getInstance(c)
 
-    private var one : String = ""
-    private var done : Float = 0F
-    private var two : String = ""
-    private var dtwo : Float = 0F
-    private var three : String = ""
-    private var dthree : Float = 0F
-    private var four : String = ""
-    private var dfour : Float = 0F
-    private var five : String = ""
-    private var dfive : Float = 0F
-    private var six : String = ""
-    private var dsix : Float = 0F
-    private var seven : String = ""
-    private var dseven : Float = 0F
-    private var eight : String = ""
-    private var deight : Float = 0F
-    private var result : String = ""
     private var id = ""
+    private var pregnancies = ""
+    private var dpregnancies = 0
+    private var glucose = ""
+    private var dglucose = 0
+    private var bloodPressure = ""
+    private var dbloodPressure = 0
+    private var skinThickness = ""
+    private var dskinThickness = 0
+    private var insulin = ""
+    private var dinsulin = 0
+    private var bmi = ""
+    private var dbmi = 0.0
+    private var diabetesPedigreeFunction = ""
+    private var ddiabetesPedigreeFunction = 0.0
+    private var age = ""
+    private var dage = 0
+    private var outcome = ""
 
     private var errors = ArrayList<String>()
 
-    fun setone(x: String) {
-        one = x
+    fun setId(idx: String) {
+        id = idx
     }
 
-    fun settwo(x: String) {
-        two = x
+    fun setPregnancies(pregnanciesx: String) {
+        pregnancies = pregnanciesx
     }
 
-    fun setthree(x: String) {
-        three = x
+    fun setGlucose(glucosex: String) {
+        glucose = glucosex
     }
 
-    fun setfour(x: String) {
-        four = x
+    fun setBloodPressure(bloodPressurex: String) {
+        bloodPressure = bloodPressurex
     }
 
-    fun setfive(x: String) {
-        five = x
+    fun setSkinThickness(skinThicknessx: String) {
+        skinThickness = skinThicknessx
     }
 
-    fun setsix(x: String) {
-        six = x
+    fun setInsulin(insulinx: String) {
+        insulin = insulinx
     }
 
-    fun setseven(x: String) {
-        seven = x
+    fun setBmi(bmix: String) {
+        bmi = bmix
     }
 
-    fun seteight(x: String) {
-        eight = x
+    fun setDiabetesPedigreeFunction(diabetesPedigreeFunctionx: String) {
+        diabetesPedigreeFunction = diabetesPedigreeFunctionx
     }
 
-    fun setresult(x: String) {
-        result = x
+    fun setAge(agex: String) {
+        age = agex
     }
 
-    fun setid(x: String) {
-        id = x
+    fun setOutcome(outcomex: String) {
+        outcome = outcomex
     }
 
     fun resetData() {
-        one = ""
-        two = ""
-        three = ""
-        four = ""
-        five = ""
-        six = ""
-        seven = ""
-        eight = ""
-        result = ""
         id = ""
+        pregnancies = ""
+        glucose = ""
+        bloodPressure = ""
+        skinThickness = ""
+        insulin = ""
+        bmi = ""
+        diabetesPedigreeFunction = ""
+        age = ""
+        outcome = ""
     }
 
-    fun iscreateClassificationError(): Boolean {
+    fun isCreateDiabeatsError(): Boolean {
+
         errors.clear()
 
-        try {
-            done = one.toFloat()
-        } catch (e: Exception) {
-            errors.add("one is not a float")
+        if (id != "") {
+            //validate
         }
-
-        try {
-            dtwo = two.toFloat()
-        } catch (e: Exception) {
-            errors.add("two is not a float")
+        else {
+            errors.add("id cannot be empty")
         }
-
         try {
-            dthree = three.toFloat()
+            dpregnancies = pregnancies.toInt()
         } catch (e: Exception) {
-            errors.add("three is not a float")
+            errors.add("pregnancies is not a Int")
         }
-
         try {
-            dfour = four.toFloat()
+            dglucose = glucose.toInt()
         } catch (e: Exception) {
-            errors.add("four is not a float")
+            errors.add("glucose is not a Int")
         }
-
         try {
-            dfive = five.toFloat()
+            dbloodPressure = bloodPressure.toInt()
         } catch (e: Exception) {
-            errors.add("five is not a float")
+            errors.add("bloodPressure is not a Int")
         }
-
         try {
-            dsix = six.toFloat()
+            dskinThickness = skinThickness.toInt()
         } catch (e: Exception) {
-            errors.add("six is not a float")
+            errors.add("skinThickness is not a Int")
         }
-
         try {
-            dseven = seven.toFloat()
+            dinsulin = insulin.toInt()
         } catch (e: Exception) {
-            errors.add("seven is not a float")
+            errors.add("insulin is not a Int")
         }
-
         try {
-            deight = eight.toFloat()
+            dbmi = bmi.toDouble()
         } catch (e: Exception) {
-            errors.add("eight is not a float")
+            errors.add("bmi is not a Double")
+        }
+        try {
+            ddiabetesPedigreeFunction = diabetesPedigreeFunction.toDouble()
+        } catch (e: Exception) {
+            errors.add("diabetesPedigreeFunction is not a Double")
+        }
+        try {
+            dage = age.toInt()
+        } catch (e: Exception) {
+            errors.add("age is not a Int")
         }
 
         return errors.isNotEmpty()
     }
 
-    fun islistClassificationError(): Boolean {
+    fun createDiabeats() {
+        model.createClassification (ClassificationVO(id, dpregnancies, dglucose, dbloodPressure, dskinThickness, dinsulin, dbmi, ddiabetesPedigreeFunction, dage, outcome))
+        resetData()
+    }
+
+    fun isListDiabeatsError(): Boolean {
         errors.clear()
+        return errors.isNotEmpty()
+    }
+
+
+    fun isSearchDiabeatsIdError(allDiabeatsIds: List<String>): Boolean {
+        errors.clear()
+        if (!allDiabeatsIds.contains(id)) {
+            errors.add("The id is not exist")
+        }
         return errors.isNotEmpty()
     }
 
@@ -144,13 +158,7 @@ class ClassificationBean(c: Context) {
         return errors.toString()
     }
 
-    fun createClassification () {
-        model.createClassification (ClassificationVO(done, dtwo, dthree, dfour, dfive, dsix, dseven, deight, result, id))
-        resetData()
-    }
 
-    fun deleteClassification() {
-        model.deleteClassification(id)
-        resetData()
-    }
+
 }
+
