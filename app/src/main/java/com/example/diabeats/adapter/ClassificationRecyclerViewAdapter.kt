@@ -27,16 +27,16 @@ class ClassificationRecyclerViewAdapter(items: List<ClassificationVO>, listener:
     // Displays data at a certain position
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.mItem = mValues[position]
-        holder.listClassificationidView.text = " " + mValues[position].getid() + " "
-        holder.listClassificationoneView.text = " " + mValues[position].getone() + " "
-        holder.listClassificationtwoView.text = " " + mValues[position].gettwo() + " "
-        holder.listClassificationthreeView.text = " " + mValues[position].getthree() + " "
-        holder.listClassificationfourView.text = " " + mValues[position].getfour() + " "
-        holder.listClassificationfiveView.text = " " + mValues[position].getfive() + " "
-        holder.listClassificationsixView.text = " " + mValues[position].getsix() + " "
-        holder.listClassificationsevenView.text = " " + mValues[position].getseven() + " "
-        holder.listClassificationeightView.text = " " + mValues[position].geteight() + " "
-        holder.listClassificationresultView.text = " " + mValues[position].getresult() + " "
+        holder.listClassificationidView.text = " " + mValues[position].id + " "
+        holder.listClassificationoneView.text = " " + mValues[position].pregnancies + " "
+        holder.listClassificationtwoView.text = " " + mValues[position].glucose + " "
+        holder.listClassificationthreeView.text = " " + mValues[position].bloodPressure + " "
+        holder.listClassificationfourView.text = " " + mValues[position].skinThickness + " "
+        holder.listClassificationfiveView.text = " " + mValues[position].insulin + " "
+        holder.listClassificationsixView.text = " " + mValues[position].bmi + " "
+        holder.listClassificationsevenView.text = " " + mValues[position].diabetesPedigreeFunction + " "
+        holder.listClassificationeightView.text = " " + mValues[position].age + " "
+        holder.listClassificationresultView.text = " " + mValues[position].outcome + " "
 
         holder.mView.setOnClickListener {
             mListener?.onListFragmentInteraction(holder.mItem)
