@@ -49,7 +49,7 @@ class CrudViewModel (context: Context): ViewModel() {
     fun allClassificationids(): ArrayList<String> {
         val res: ArrayList<String> = ArrayList()
         for (x in currentClassifications.indices) {
-            res.add(currentClassifications[x].getid() + "")
+            res.add(currentClassifications[x].id + "")
         }
         return res
     }
@@ -75,20 +75,20 @@ class CrudViewModel (context: Context): ViewModel() {
     }
 
     fun editClassification(x: ClassificationVO) {
-        var obj = getClassificationByPK(x.getid())
+        var obj = getClassificationByPK(x.id)
         if (obj == null) {
-            obj = Classification.createByPKClassification(x.getid())
+            obj = Classification.createByPKClassification(x.id)
         }
-        obj.one = x.getone()
-        obj.two = x.gettwo()
-        obj.three = x.getthree()
-        obj.four = x.getfour()
-        obj.five = x.getfive()
-        obj.six = x.getsix()
-        obj.seven = x.getseven()
-        obj.eight = x.geteight()
-        obj.result = x.getresult()
-        obj.id = x.getid()
+        obj.id = x.id
+        obj.pregnancies = x.pregnancies
+        obj.glucose = x.glucose
+        obj.bloodPressure = x.bloodPressure
+        obj.skinThickness = x.skinThickness
+        obj.insulin = x.insulin
+        obj.bmi = x.bmi
+        obj.diabetesPedigreeFunction = x.diabetesPedigreeFunction
+        obj.age = x.age
+        obj.outcome = x.outcome
         cdb.persistClassification(obj)
         currentClassification = x
     }
