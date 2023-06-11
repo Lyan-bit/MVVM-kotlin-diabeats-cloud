@@ -105,30 +105,30 @@ class CreateFragment : Fragment(), View.OnClickListener {
 
     private fun createOK () {
         input1Data = input1.text.toString()
-        classificationBean.setid(input1Data)
+        classificationBean.setId(input1Data)
         input2Data = input2.text.toString()
-        classificationBean.setone(input2Data)
+        classificationBean.setPregnancies(input2Data)
         input3Data = input3.text.toString()
-        classificationBean.settwo(input3Data)
+        classificationBean.setGlucose(input3Data)
         input4Data = input4.text.toString()
-        classificationBean.setthree(input4Data)
+        classificationBean.setBloodPressure(input4Data)
         input5Data = input5.text.toString()
-        classificationBean.setfour(input5Data)
+        classificationBean.setSkinThickness(input5Data)
         input6Data = input6.text.toString()
-        classificationBean.setfive(input6Data)
+        classificationBean.setInsulin(input6Data)
         input7Data = input7.text.toString()
-        classificationBean.setsix(input7Data)
+        classificationBean.setBmi(input7Data)
         input8Data = input8.text.toString()
-        classificationBean.setseven(input8Data)
+        classificationBean.setDiabetesPedigreeFunction(input8Data)
         input9Data = input9.text.toString()
-        classificationBean.seteight(input9Data)
-        classificationBean.setresult(resultTextView.text.toString())
+        classificationBean.setAge(input9Data)
+        classificationBean.setOutcome(resultTextView.text.toString())
 
-        if (classificationBean.iscreateClassificationError()) {
+        if (classificationBean.isCreateDiabeatsError()) {
                 Log.w(javaClass.name, classificationBean.errors())
                 Toast.makeText(myContext, "Errors: " + classificationBean.errors(), Toast.LENGTH_LONG).show()
         } else {
-            classificationBean.createClassification()
+            classificationBean.createDiabeats()
        }
 
     }
