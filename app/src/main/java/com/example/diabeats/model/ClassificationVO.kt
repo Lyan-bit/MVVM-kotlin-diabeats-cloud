@@ -41,7 +41,7 @@ class ClassificationVO {
         this.outcome = outcomex
     }
 
-    constructor (x: Diabeats) {
+    constructor (x: Classification) {
         id = x.id
         pregnancies = x.pregnancies
         glucose = x.glucose
@@ -58,7 +58,7 @@ class ClassificationVO {
         return "id = $id,pregnancies = $pregnancies,glucose = $glucose,bloodPressure = $bloodPressure,skinThickness = $skinThickness,insulin = $insulin,bmi = $bmi,diabetesPedigreeFunction = $diabetesPedigreeFunction,age = $age,outcome = $outcome"
     }
 
-    fun toStringList(list: List<DiabeatsVO>): List<String> {
+    fun toStringList(list: List<ClassificationVO>): List<String> {
         val res: MutableList<String> = ArrayList()
         for (i in list.indices) {
             res.add(list[i].toString())
