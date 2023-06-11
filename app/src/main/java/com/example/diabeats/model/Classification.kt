@@ -35,14 +35,14 @@ class Classification {
         }
     }
 
-    var one : Float = 0F
-    var two : Float = 0F
-    var three : Float = 0F
-    var four : Float = 0F
-    var five : Float = 0F
-    var six : Float = 0F
-    var seven : Float = 0F
-    var eight : Float = 0F
-    var result = ""
-    var id = ""  /* primary */
+    var id = ""  /* identity */
+    var pregnancies = 0
+    var glucose = 0
+    var bloodPressure = 0
+    var skinThickness = 0
+    var insulin = 0
+    var bmi = 0.0
+    var diabetesPedigreeFunction = 0.0
+    var age = 0
+    var outcome = ""  /* derived */
 }
