@@ -46,16 +46,16 @@ class ClassificationViewModel (context: Context): ViewModel() {
             ex.printStackTrace()
         }
 
-        val done: Float = (classification.one - 0) / (17-0)
-        val dtwo = (classification.two - 0) / (199-0)
-        val dthree = (classification.three - 0) / (122-0)
-        val dfour = (classification.four - 0) / (99-0)
-        val dfive = (classification.five - 0) / (846-0)
-        val dsix = (classification.six - 0) / (67.1f-0)
-        val dseven = (classification.seven - .078f) / (2.42f-.078f)
-        val deight = (classification.eight - 21) / (81-21)
-
-        val inputVal: FloatArray = floatArrayOf(done, dtwo, dthree, dfour, dfive, dsix, dseven,deight)
+        val inputVal: FloatArray = floatArrayOf(
+            ((classification.pregnancies - 0) / (17 - 0)).toFloat(),
+            ((classification.glucose - 0) / (199 - 0)).toFloat(),
+            ((classification.bloodPressure - 0) / (122 - 0)).toFloat(),
+            ((classification.skinThickness - 0) / (99 - 0)).toFloat(),
+            ((classification.insulin - 0) / (846 - 0)).toFloat(),
+            ((classification.bmi - 0) / (67.1 - 0)).toFloat(),
+            ((classification.diabetesPedigreeFunction - 0.78) / (2.42 - 0.78)).toFloat(),
+            ((classification.age - 21) / (81 - 21)).toFloat()
+        )
         val outputVal: ByteBuffer = ByteBuffer.allocateDirect(8)
         outputVal.order(ByteOrder.nativeOrder())
 
@@ -72,7 +72,7 @@ class ClassificationViewModel (context: Context): ViewModel() {
         else
             res = "Result is positive"
 
-        classification.result = res
+        classification.outcome = res
         crudViewModel.persistClassification(classification)
 
         return res
