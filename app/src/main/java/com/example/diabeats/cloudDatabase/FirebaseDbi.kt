@@ -57,7 +57,7 @@ class FirebaseDbi() {
 
     fun persistClassification(ex: Classification) {
         val evo = ClassificationVO(ex)
-        val key = evo.getid()
+        val key = evo.id
         if (database == null) {
             return
         }
